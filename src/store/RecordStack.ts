@@ -53,7 +53,8 @@ export const useRecordStack = create<Props>()(set => ({
             ProvidingRelocation: ["Domestic only",
                 "Ready to relocate"],
             soc: {},
-            WorkType: ["Office", "Remote"]
+            WorkType: ["Office", "Remote"],
+            Comment: ''
         },
         {
             img: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Kumail_Nanjiani_by_Gage_Skidmore_2.jpg",
@@ -87,7 +88,7 @@ export const useRecordStack = create<Props>()(set => ({
                 "English",
                 "Yamete Kudasai"
             ],
-            Description: "One of the creators PedoChat && PedoDuduchnik.",
+            Description: "One of the creators PedoChat && PedoDuduchnik. Gilfloy and I are best friends =)",
             Location: "Canada",
             Salary: {
                 min: "50000",
@@ -98,7 +99,8 @@ export const useRecordStack = create<Props>()(set => ({
             ProvidingRelocation: ["Domestic only",
                 "Ready to relocate"],
             soc: {},
-            WorkType: ["Office", "Remote"]
+            WorkType: ["Office", "Remote"],
+            Comment: ''
         }
     ],
     RecordMutation: (val) => set(({ Record }) => ({
