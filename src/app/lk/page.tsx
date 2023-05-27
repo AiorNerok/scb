@@ -12,7 +12,7 @@ export default function PageLk() {
   return (
     <main className="flex-1 pl-5 w-full inline-flex flex-wrap flex-row gap-3 ">
       {status === "Active" && (
-        <div className="flex-1 flex flex-row gap-4">
+        <div className="flex-1 flex flex-row gap-4 flex-wrap">
           {vacanciesList &&
             vacanciesList
               .filter((el) => el.isActive === true)
