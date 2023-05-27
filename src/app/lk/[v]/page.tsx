@@ -1,5 +1,6 @@
 "use client";
 
+import { redirect } from "next/navigation";
 import { useStoreVacanciesStack } from "@/store/VacanciesStack";
 import { useRecordStack } from "@/store/RecordStack";
 import { Badge } from "@/components/Atoms";
@@ -12,6 +13,10 @@ export default function Page({ params }: { params: { v: string } }) {
   const { Record } = useRecordStack();
 
   const res = vacanciesList.filter((el) => el.Id === params.v);
+
+  if (res.length === 0) {
+    redirect("/lk");
+  }
 
   const { Title, Stack, Language, Developers } = res[0];
 
@@ -44,7 +49,14 @@ export default function Page({ params }: { params: { v: string } }) {
 
       <div className="space-y-4">
         {candidate.map((el) => {
-          return <ItemCandidat desc={el.Description} img={el.img!} name={el.Name} key={el.ID} />;
+          return (
+            <ItemCandidat
+              desc={el.Description}
+              img={el.img!}
+              name={el.Name}
+              key={el.ID}
+            />
+          );
         })}
       </div>
     </div>
