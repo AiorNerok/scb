@@ -93,7 +93,7 @@ export const useStaticData = create<Props<string>>()((set) => ({
 
     ],
     DB: ["Oracle", "PostgreSQL", "MySQL", "Microsoft SQL Server", "IBM DB2", "SQLite", "MongoDB", "Cassandra", "Redis", "MariaDB", "Amazon Aurora", "Amazon DynamoDB", "Couchbase", "Neo4j", "Informix", "Teradata", "SAP HANA", "Apache HBase", "Apache Phoenix", "Google Cloud Spanner"],
-    Grade: ["Jian Yang", "Big Head", "Dinesh", "Gilfoyle", "Elliot Alderson"],
+    Grade: ["Junior", "Middle", "Senior", "Lead", "Elliot Alderson"],
     Language: ["English", "NeEnglish", "Yamete Kudasai"],
     StatusPositionFilter: ["Experience", "Expectations", "Publication"],
     Engagement: ['Full Time', "Part Time"],
