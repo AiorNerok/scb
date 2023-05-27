@@ -8,8 +8,11 @@ import Logo from "@/assets/logo.svg";
 export default function Page() {
   return (
     <div className="w-full min-h-screen flex items-center justify-center bg-prime-bg">
-      <div className="fixed top-6 left-6">
+      <div className="fixed top-6 left-6 flex flex-row items-center">
         <Image src={Logo} alt="logo" />
+        <div className="ml-14">
+          <Link href="/lk">Dashboard</Link>
+        </div>
       </div>
       <div className="space-y-4 flex flex-col min-w-[1200px] min-h-[650px] items-center justify-center rounded-2xl border bg-white hronit-shadow">
         <Link

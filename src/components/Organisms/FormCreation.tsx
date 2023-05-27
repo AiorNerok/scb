@@ -60,94 +60,101 @@ export const FormCreation = ({}: Props) => {
     <>
       <form className="flex flex-col gap-3 w-[586px]" onSubmit={() => ({})}>
         {Position === StatusPositionFilter[0] && (
-          <>
-            <label>
-              Name
-              <input
-                type="text"
-                className="border focus:outline-none px-4 py-2 w-full border-black"
-                placeholder="Name"
-                value={Name}
-                onChange={(e) => NameMutation(e.target.value)}
-              />
-            </label>
-            <DynamicExperience />
-          </>
+          <DynamicExperience
+            BeforeBegin={
+                <label>
+                  Name
+                  <input
+                    type="text"
+                    className="border focus:outline-none px-4 py-2 w-full border-black"
+                    placeholder="Name"
+                    value={Name}
+                    onChange={(e) => NameMutation(e.target.value)}
+                  />
+                </label>
+            }
+          />
         )}
 
         {Position === StatusPositionFilter[1] && (
-          <>
-            <DynamicExpectations />
-            <div className="mb-14">
-              <label
-                htmlFor="upload"
-                className="flex flex-row gap-1 items-center"
-              >
-                <IconPaperclip size={30} /> <span>Upload a photo</span>
-                <input id="upload" type="file" className="hidden" />
-              </label>
-            </div>
-            <button
-              onClick={() => PositionUpdate("Publication")}
-              type="button"
-              className="hronit-shadow bg-[#CEFF1A] text-black w-[135px] px-8 py-3"
-            >
-              Continue
-            </button>
-          </>
+          <DynamicExpectations
+            AfterEnd={
+              <>
+                <div className="mb-14">
+                  <label
+                    htmlFor="upload"
+                    className="flex flex-row gap-1 items-center"
+                  >
+                    <IconPaperclip size={30} /> <span>Upload a photo</span>
+                    <input id="upload" type="file" className="hidden" />
+                  </label>
+                </div>
+                <button
+                  onClick={() => PositionUpdate("Publication")}
+                  type="button"
+                  className="hronit-shadow bg-[#CEFF1A] text-black w-[135px] px-8 py-3"
+                >
+                  Continue
+                </button>
+              </>
+            }
+          />
         )}
 
         {Position === StatusPositionFilter[2] && (
-          <>
-            <DynamicPublication />
-            <div>
-              <h3 className="text-xl mb-4">
-                Confirm your consent to the processing of personal data
-              </h3>
-              <div className="flex gap-5">
-                <label htmlFor="agree" className="flex gap-2">
-                  <input
-                    onChange={() => IsAgreeMutation(true)}
-                    id="agree"
-                    type="radio"
-                    name="confirm"
-                    checked={IsAgree}
-                  />
-                  Agree
-                </label>
-                <label htmlFor="disagree" className="flex gap-2">
-                  <input
-                    onChange={() => IsAgreeMutation(false)}
-                    id="disagree"
-                    type="radio"
-                    name="confirm"
-                    checked={!IsAgree}
-                  />
-                  Disagree
-                </label>
-              </div>
-            </div>
-            <div>
-              <button
-                disabled={IsAgree === false}
-                onClick={() => {
-                  RecordMutation({
-                    ID: crypto.randomUUID(),
-                    Name,
-                    ...Record,
-                    ...Expectations,
-                  });
-                  router.push("/");
-                  Clean();
-                  PositionUpdate("Experience");
-                }}
-                type="button"
-                className="w-full hronit-shadow  disabled:bg-gray-300 bg-[#CEFF1A] text-black px-8 py-3"
-              >
-                Publish
-              </button>
-            </div>
-          </>
+          <DynamicPublication
+            AfterEnd={
+              <>
+                <div>
+                  <h3 className="text-xl mb-4">
+                    Confirm your consent to the processing of personal data
+                  </h3>
+                  <div className="flex gap-5">
+                    <label htmlFor="agree" className="flex gap-2">
+                      <input
+                        onChange={() => IsAgreeMutation(true)}
+                        id="agree"
+                        type="radio"
+                        name="confirm"
+                        checked={IsAgree}
+                      />
+                      Agree
+                    </label>
+                    <label htmlFor="disagree" className="flex gap-2">
+                      <input
+                        onChange={() => IsAgreeMutation(false)}
+                        id="disagree"
+                        type="radio"
+                        name="confirm"
+                        checked={!IsAgree}
+                      />
+                      Disagree
+                    </label>
+                  </div>
+                </div>
+                <div>
+                  <button
+                    disabled={IsAgree === false}
+                    onClick={() => {
+                      RecordMutation({
+                        ID: crypto.randomUUID(),
+                        Name,
+                        ...Record,
+                        ...Expectations,
+                      });
+                      router.push("/");
+                      Clean();
+                      PositionUpdate("Experience");
+                    }}
+                    type="button"
+                    className="w-full hronit-shadow  disabled:bg-gray-300 bg-[#CEFF1A] text-black px-8 py-3"
+                  >
+                    Publish
+                  </button>
+                </div>
+              </>
+            }
+          />
         )}
       </form>
       <aside className="min-w-[233px] flex flex-col gap-3 items-baseline w-[200px]">

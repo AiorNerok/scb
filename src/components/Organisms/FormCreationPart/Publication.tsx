@@ -1,7 +1,13 @@
 import { Badge } from "@/components/Atoms";
 import { useRecordCreation } from "@/store/RecordCreation";
 import { IconBrandTelegram, IconBrandWhatsapp } from "@tabler/icons-react";
-export default function Publication() {
+
+type Props = {
+  BeforeBegin?: React.ReactNode;
+  AfterEnd?: React.ReactNode;
+};
+
+export default function Publication({ BeforeBegin, AfterEnd }: Props) {
   const {
     Record: {
       Department,
@@ -28,6 +34,7 @@ export default function Publication() {
 
   return (
     <>
+      {BeforeBegin}
       <div className="flex gap-5 flex-col">
         <div className="flex flex-col gap-3">
           <h1 className="text-4xl font-semibold">{Name}</h1>
@@ -82,6 +89,7 @@ export default function Publication() {
           </div>
         </div>
       </div>
+      {AfterEnd}
     </>
   );
 }

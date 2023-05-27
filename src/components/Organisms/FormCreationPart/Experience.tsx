@@ -7,7 +7,12 @@ import { useRecordCreation } from "@/store/RecordCreation";
 
 import { Badge } from "@/components/Atoms";
 
-function Experience() {
+type Props = {
+  BeforeBegin?: React.ReactNode;
+  AfterEnd?: React.ReactNode;
+};
+
+function Experience({ BeforeBegin, AfterEnd }: Props) {
   const { MockData, DB, Grade, Language } = useStaticData();
   const { Record, RecordMutation, PositionUpdate } = useRecordCreation();
 
@@ -132,7 +137,8 @@ function Experience() {
   }, [Record.DB.length, RecordMutation]);
 
   return (
-    <div>
+    <>
+      {BeforeBegin}
       <div>
         Department
         <div className="border min-h-[42px] px-4 py-2 w-full mb-4 border-black">
@@ -428,7 +434,8 @@ function Experience() {
           </button>
         </>
       )}
-    </div>
+      {AfterEnd}
+    </>
   );
 }
 

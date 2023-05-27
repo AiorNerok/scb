@@ -6,15 +6,19 @@ import { useRecordCreation } from "@/store/RecordCreation";
 import { useStaticData } from "@/store/StaticData";
 import { Badge } from "@/components/Atoms";
 
-type Props = {};
+type Props = {
+  BeforeBegin?: React.ReactNode;
+  AfterEnd?: React.ReactNode;
+};
 
-export default function Expectations({}: Props) {
+export default function Expectations({ AfterEnd, BeforeBegin }: Props) {
   const { Expectations, ExpectationsMutation, PositionUpdate } =
     useRecordCreation();
   const { Engagement, WorkType, ProvidingRelocation } = useStaticData();
 
   return (
     <>
+      {BeforeBegin}
       <label>
         Location
         <input
@@ -252,8 +256,8 @@ export default function Expectations({}: Props) {
             </div>
           </div>
         </div>
-       
       </div>
+      {AfterEnd}
     </>
   );
 }

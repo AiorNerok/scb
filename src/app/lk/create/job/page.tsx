@@ -33,83 +33,81 @@ export default function Page() {
 
   const { StatusPositionFilter } = useStaticData();
 
-  const {
-    Position,
-    Name,
-    Expectations,
-    Record,
-    PositionUpdate,
-    NameMutation,
-    RecordMutation,
-    Clean,
-  } = useRecordCreation();
+  const { Position, Name, Record, PositionUpdate, NameMutation, Clean } =
+    useRecordCreation();
 
   const { vacanciesListUpdate } = useStoreVacanciesStack();
 
   return (
-    <div className="px-6 flex flex-row gap-4 justify-between">
-      {Position === StatusPositionFilter[0] && (
-        <div className="flex-1 max-w-[586px] w-full space-y-3 pb-6">
-          <label>
-            Job Title
-            <input
-              type="text"
-              className="border focus:outline-none px-4 py-2 w-full border-black"
-              placeholder="Job Title"
-              value={Name}
-              onChange={(e) => NameMutation(e.target.value)}
+    <div className="flex">
+      <form className="flex flex-1 flex-col gap-3" onSubmit={() => ({})}>
+        <div className="px-6 flex flex-col gap-4 justify-between w-[586px]">
+          {Position === StatusPositionFilter[0] && (
+            <DynamicExperience
+              BeforeBegin={
+                <label>
+                  Job Title
+                  <input
+                    type="text"
+                    className="border focus:outline-none px-4 py-2 w-full border-black"
+                    placeholder="Job Title"
+                    value={Name}
+                    onChange={(e) => NameMutation(e.target.value)}
+                  />
+                </label>
+              }
             />
-          </label>
-          <DynamicExperience />
-        </div>
-      )}
+          )}
 
-      {Position === StatusPositionFilter[1] && (
-        <div className="flex-1 max-w-[586px] w-full space-y-3 pb-6">
-          <DynamicExpectations />
-          <button
-            onClick={() => PositionUpdate("Publication")}
-            type="button"
-            className="hronit-shadow bg-[#CEFF1A] text-black w-[135px] px-8 py-3"
-          >
-            Continue
-          </button>
-        </div>
-      )}
+          {Position === StatusPositionFilter[1] && (
+            <DynamicExpectations
+              AfterEnd={
+                <button
+                  onClick={() => PositionUpdate("Publication")}
+                  type="button"
+                  className="hronit-shadow bg-[#CEFF1A] text-black w-[135px] px-8 py-3"
+                >
+                  Continue
+                </button>
+              }
+            />
+          )}
 
-      {Position === StatusPositionFilter[2] && (
-        <div className="flex-1 max-w-[586px] w-full space-y-3 pb-6">
-          <DynamicPublication />
-          <div>
-            <button
-              onClick={() => {
-                vacanciesListUpdate({
-                  Id: crypto.randomUUID(),
-                  Title: Name,
-                  Department: Record.Department,
-                  Specialization: Record.Specialization,
-                  Developers: Record.Developers,
-                  ProgrammingLanguage: Record.ProgrammingLanguage,
-                  Stack: Record.Stack,
-                  DB: Record.DB,
-                  Grade: Record.Grade,
-                  Language: Record.Language,
-                  Description: Record.Description,
-                  isActive: true,
-                });
-                router.push("/lk");
-                Clean();
-                PositionUpdate("Experience");
-              }}
-              type="button"
-              className="w-full hronit-shadow  disabled:bg-gray-300 bg-[#CEFF1A] text-black px-8 py-3"
-            >
-              Publish
-            </button>
-          </div>
+          {Position === StatusPositionFilter[2] && (
+            <DynamicPublication
+              AfterEnd={
+                <div>
+                  <button
+                    onClick={() => {
+                      vacanciesListUpdate({
+                        Id: crypto.randomUUID(),
+                        Title: Name,
+                        Department: Record.Department,
+                        Specialization: Record.Specialization,
+                        Developers: Record.Developers,
+                        ProgrammingLanguage: Record.ProgrammingLanguage,
+                        Stack: Record.Stack,
+                        DB: Record.DB,
+                        Grade: Record.Grade,
+                        Language: Record.Language,
+                        Description: Record.Description,
+                        isActive: true,
+                      });
+                      router.push("/lk");
+                      Clean();
+                      PositionUpdate("Experience");
+                    }}
+                    type="button"
+                    className="w-full hronit-shadow  disabled:bg-gray-300 bg-[#CEFF1A] text-black px-8 py-3"
+                  >
+                    Publish
+                  </button>
+                </div>
+              }
+            />
+          )}
         </div>
-      )}
-
+      </form>
       <aside className="min-w-[233px] flex flex-col gap-3 items-baseline w-[200px]">
         {StatusPositionFilter.map((el) => (
           <p
