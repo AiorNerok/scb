@@ -33,14 +33,21 @@ export default function Page() {
 
   const { StatusPositionFilter } = useStaticData();
 
-  const { Position, Name, Record, PositionUpdate, NameMutation, Clean } =
-    useRecordCreation();
+  const {
+    Position,
+    Name,
+    Record,
+    PositionUpdate,
+    NameMutation,
+    Clean,
+    RecordMutation,
+  } = useRecordCreation();
 
   const { vacanciesListUpdate } = useStoreVacanciesStack();
 
   return (
     <div className="flex">
-      <form className="flex flex-1 flex-col gap-3" onSubmit={() => ({})}>
+      <form className="flex flex-1 flex-col gap-3 pb-10" onSubmit={() => ({})}>
         <div className="px-6 flex flex-col gap-4 justify-between w-[586px]">
           {Position === StatusPositionFilter[0] && (
             <DynamicExperience
@@ -62,13 +69,28 @@ export default function Page() {
           {Position === StatusPositionFilter[1] && (
             <DynamicExpectations
               AfterEnd={
-                <button
-                  onClick={() => PositionUpdate("Publication")}
-                  type="button"
-                  className="hronit-shadow bg-[#CEFF1A] text-black w-[135px] px-8 py-3"
-                >
-                  Continue
-                </button>
+                <>
+                  <label htmlFor="comment">
+                    A comment
+                    <textarea
+                      name=""
+                      id="comment"
+                      cols={30}
+                      rows={5}
+                      onChange={(e) =>
+                        RecordMutation({ Comment: e.target.value })
+                      }
+                      className="border focus:outline-none px-4 py-2 w-full border-black"
+                    />
+                  </label>
+                  <button
+                    onClick={() => PositionUpdate("Publication")}
+                    type="button"
+                    className="hronit-shadow bg-[#CEFF1A] text-black w-[135px] px-8 py-3"
+                  >
+                    Continue
+                  </button>
+                </>
               }
             />
           )}
@@ -76,33 +98,42 @@ export default function Page() {
           {Position === StatusPositionFilter[2] && (
             <DynamicPublication
               AfterEnd={
-                <div>
-                  <button
-                    onClick={() => {
-                      vacanciesListUpdate({
-                        Id: crypto.randomUUID(),
-                        Title: Name,
-                        Department: Record.Department,
-                        Specialization: Record.Specialization,
-                        Developers: Record.Developers,
-                        ProgrammingLanguage: Record.ProgrammingLanguage,
-                        Stack: Record.Stack,
-                        DB: Record.DB,
-                        Grade: Record.Grade,
-                        Language: Record.Language,
-                        Description: Record.Description,
-                        isActive: true,
-                      });
-                      router.push("/lk");
-                      Clean();
-                      PositionUpdate("Experience");
-                    }}
-                    type="button"
-                    className="w-full hronit-shadow  disabled:bg-gray-300 bg-[#CEFF1A] text-black px-8 py-3"
-                  >
-                    Publish
-                  </button>
-                </div>
+                <>
+                  <div>
+                    <h2>Benefits</h2>
+                    <p className="whitespace-pre-line break-words">
+                      {Record.Comment}
+                    </p>
+                  </div>
+                  <div>
+                    <button
+                      onClick={() => {
+                        vacanciesListUpdate({
+                          Id: crypto.randomUUID(),
+                          Title: Name,
+                          Department: Record.Department,
+                          Specialization: Record.Specialization,
+                          Developers: Record.Developers,
+                          ProgrammingLanguage: Record.ProgrammingLanguage,
+                          Stack: Record.Stack,
+                          DB: Record.DB,
+                          Grade: Record.Grade,
+                          Language: Record.Language,
+                          Description: Record.Description,
+                          isActive: true,
+                          Comment: Record.Comment,
+                        });
+                        router.push("/lk");
+                        Clean();
+                        PositionUpdate("Experience");
+                      }}
+                      type="button"
+                      className="w-full hronit-shadow  disabled:bg-gray-300 bg-[#CEFF1A] text-black px-8 py-3"
+                    >
+                      Publish
+                    </button>
+                  </div>
+                </>
               }
             />
           )}

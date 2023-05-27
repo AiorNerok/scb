@@ -11,7 +11,8 @@ export type RecordProps = {
     DB: string[]
     Grade: string
     Language: string[]
-    Description: string
+    Description: string,
+    Comment:string
 }
 
 export type ExpectationsProps = {
@@ -71,6 +72,7 @@ export const useRecordCreation = create<Props>()(set => ({
         Grade: "",
         Language: [],
         Description: "",
+        Comment: ""
     },
     RecordMutation: (val) => set(({ Record }) => ({
         Record: { ...Record, ...val }
@@ -112,6 +114,7 @@ export const useRecordCreation = create<Props>()(set => ({
             Grade: "",
             Language: [],
             Description: "",
+            Comment:""
         },
         Expectations: {
             Location: "",

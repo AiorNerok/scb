@@ -12,6 +12,7 @@ export type vacancies = {
   Grade: string;
   Language: string[];
   Description: string;
+  Comment: string,
   isActive: boolean;
 };
 
@@ -36,6 +37,7 @@ export const useStoreVacanciesStack = create<Props>()((set) => ({
       Stack: ['Java Core'],
       Title: "Desktop",
       isActive: true,
+      Comment: "if you are reading this. Know. Everything will be alright. PS...Do not devalue your way. Good luck"
     }
   ],
   vacanciesListUpdate: (value) =>
