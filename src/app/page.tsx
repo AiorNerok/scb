@@ -3,14 +3,9 @@
 import { IconCloud } from "@tabler/icons-react";
 import Link from "next/link";
 import Image from "next/image";
-
-import { useRecordStack } from "@/store/RecordStack";
-
 import Logo from "@/assets/logo.svg";
 
 export default function Page() {
-  const { Record } = useRecordStack();
-  console.log(Record);
   return (
     <div className="w-full min-h-screen flex items-center justify-center bg-prime-bg">
       <div className="fixed top-6 left-6">
