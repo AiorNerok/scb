@@ -18,7 +18,7 @@ export default function Page() {
           className="flex flex-row align-baseline items-center justify-center w-[378px] border h-[138px] hronit-shadow"
         >
           <IconCloud stroke={1} size={84} fill="#D2AFFF" />
-          <span>From for lead</span>
+          <span>Form for lead</span>
         </Link>
       </section>
     </div>
