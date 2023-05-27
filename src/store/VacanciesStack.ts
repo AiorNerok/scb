@@ -53,4 +53,5 @@ export const useStoreVacanciesStack = create<Props>()((set) => ({
         return el;
       }),
     })),
+
 }));

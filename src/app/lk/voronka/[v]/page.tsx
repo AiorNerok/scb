@@ -2,26 +2,20 @@
 
 import { redirect } from "next/navigation";
 import { useStoreVacanciesStack } from "@/store/VacanciesStack";
-import { useRecordStack, RecordProp } from "@/store/RecordStack";
+import { RecordProp, useRecordStack } from "@/store/RecordStack";
 import { Badge } from "@/components/Atoms";
 import { Dropdown } from "@/components";
 import { IconAdjustmentsCog, IconWand } from "@tabler/icons-react";
 import { ItemCandidat } from "@/components/Molecules/ItemCandidat";
 
-function choose(choices: any[]) {
-  var index = Math.floor(Math.random() * choices.length);
-  return choices[index];
-}
-
 export default function Page({ params }: { params: { v: string } }) {
   const { vacanciesList } = useStoreVacanciesStack();
-
-  const { Record, toggleBest } = useRecordStack();
+  const { Record } = useRecordStack();
 
   const res = vacanciesList.filter((el) => el.Id === params.v);
 
   if (res.length === 0) {
-    redirect("/lk");
+    redirect("/voronka");
   }
 
   const { Title, Stack, Language, Developers } = res[0];
@@ -29,7 +23,7 @@ export default function Page({ params }: { params: { v: string } }) {
   let candidate: RecordProp[] = [];
 
   Record.forEach((el) => {
-    if (el.isBest) return;
+    if (!el.isBest) return;
 
     return Developers.map((v) => {
       if (el.Developers.includes(v)) {
@@ -54,25 +48,14 @@ export default function Page({ params }: { params: { v: string } }) {
             <span key={el}>{el}</span>
           ))}
         </Dropdown>
-
-        <button
-          onClick={() => {
-            toggleBest(choose(candidate)["ID"]);
-          }}
-          className="w-[213px] h-[52px] flex items-center justify-center hronit-shadow bg-[#CEFF1A]"
-        >
-          <span>
-            <IconWand className="pr-4" />
-          </span>
-          <span>Magic search</span>
-        </button>
       </div>
+
       <div className="space-y-4">
         {candidate.map((el) => {
           return (
             <ItemCandidat
-              isBest={el.isBest}
-              ID={el.ID}
+            isBest={el.isBest}
+            ID={el.ID}
               desc={el.Description}
               img={el.img!}
               name={el.Name}

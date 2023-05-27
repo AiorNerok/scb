@@ -1,13 +1,24 @@
-import { IconHeart, IconMail, IconPlus } from "@tabler/icons-react";
+import { IconHeart, IconMail, IconMinus, IconPlus } from "@tabler/icons-react";
 import Image from "next/image";
+import { useRecordStack } from "@/store/RecordStack";
 
 type Props = {
   img?: string;
   name: string;
   desc: string;
+  ID: string;
+  isBest?: boolean;
 };
 
-export const ItemCandidat = ({ img, name, desc }: Props) => {
+export const ItemCandidat = ({
+  img,
+  name,
+  desc,
+  ID,
+  isBest = false,
+}: Props) => {
+  const { toggleBest } = useRecordStack();
+
   return (
     <div className="flex flex-row justify-between">
       <div className="mr-14">
@@ -31,7 +42,13 @@ export const ItemCandidat = ({ img, name, desc }: Props) => {
       <div className="flex flex-row gap-9 items-center ">
         <IconMail size={40} />
         <IconHeart size={40} />
-        <IconPlus size={40} />
+        {!isBest ? (
+          <button onClick={() => toggleBest(ID)}>
+            <IconPlus size={40} />
+          </button>
+        ) : (
+          <IconMinus size={40} />
+        )}
       </div>
     </div>
   );

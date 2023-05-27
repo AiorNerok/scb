@@ -11,6 +11,7 @@ type Props = {
   isActive?: boolean;
   id?: string;
   Id_v?: string;
+  LinkFsociety?: boolean;
   toggleActiveFn?: (id: string) => void;
 };
 
@@ -22,6 +23,7 @@ export default function Card({
   emptyCard = false,
   Id_v,
   isActive,
+  LinkFsociety = false,
 }: Props) {
   if (emptyCard) {
     return (
@@ -38,9 +40,15 @@ export default function Card({
       }`}
     >
       <div className="flex justify-between mb-5">
-        <Link href={`/lk/${Id_v}`}>
-          <h3 className="text-2xl font-bold">{title}</h3>
-        </Link>
+        {LinkFsociety ? (
+          <Link href={`/lk/voronka/${Id_v}`}>
+            <h3 className="text-2xl font-bold">{title}</h3>
+          </Link>
+        ) : (
+          <Link href={`/lk/${Id_v}`}>
+            <h3 className="text-2xl font-bold">{title}</h3>
+          </Link>
+        )}
         <Dropdown
           target={
             <>
