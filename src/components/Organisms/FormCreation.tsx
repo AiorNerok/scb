@@ -208,7 +208,8 @@ export const FormCreation = ({}: Props) => {
               <>
                 <div>
                   <h3 className="text-xl mb-4">
-                    Confirm your consent to the processing of personal data
+                    <span className="text-cyan-500 cursor-pointer">Confirm</span> your consent to the processing of
+                    personal data
                   </h3>
                   <div className="flex gap-5">
                     <label htmlFor="agree" className="flex gap-2 form-control">
