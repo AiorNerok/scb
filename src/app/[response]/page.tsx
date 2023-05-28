@@ -2,13 +2,17 @@
 
 import { Badge } from "@/components";
 import { useStoreVacanciesStack } from "@/store/VacanciesStack";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 export default function Page({ params }: { params: { response: string } }) {
   const { vacanciesList } = useStoreVacanciesStack();
   const router = useRouter();
   const data = vacanciesList.filter((el) => el.Id === params.response);
-
+  
+  if (data.length === 0) {
+    redirect("/");
+  }
+  
   const {
     Title,
     Department,
@@ -27,6 +31,8 @@ export default function Page({ params }: { params: { response: string } }) {
     Comment,
   } = data[0];
 
+
+  
   return (
     <div className="w-full min-h-screen flex items-center justify-center bg-prime-bg">
       <div className="p-20 max-w-[900px] space-y-4 flex flex-col min-w-[800px] min-h-[650px] items-center rounded-2xl border bg-white hronit-shadow">

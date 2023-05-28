@@ -16,18 +16,15 @@ export default function Page({ params }: { params: { v: string } }) {
     redirect("/voronka");
   }
 
-  const { Title, Stack, Language, Developers } = res[0];
+  const { Title, Stack, Language, Developers, Id } = res[0];
 
   let candidate: RecordProp[] = [];
 
   Record.forEach((el) => {
     if (!el.isBest) return;
-
-    return Developers.map((v) => {
-      if (el.Developers.includes(v)) {
-        candidate.push(el);
-      }
-    });
+    if (el.id_vacancies === Id) {
+      candidate.push(el);
+    }
   });
 
   return (
