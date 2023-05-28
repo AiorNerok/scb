@@ -13,7 +13,7 @@ export default function Page() {
           <span>Create a Job</span>
         </Link>
         <Link
-          href="/lk"
+          href="/lead/"
           className="flex flex-row align-baseline items-center justify-center w-[378px] border h-[138px] hronit-shadow"
         >
           <IconCloud stroke={1} size={84} fill="#D2AFFF" />

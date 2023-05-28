@@ -110,7 +110,6 @@ export default function Page() {
                     <button
                       onClick={() => {
                         vacanciesListUpdate({
-                          // Id: crypto.randomUUID(),
                           Id: '123312dwqw-awdqwfqwf-csacascawq',
                           Title: Name,
                           Department: Record.Department,

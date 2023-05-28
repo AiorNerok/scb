@@ -8,11 +8,11 @@ export default function Page({ params }: { params: { response: string } }) {
   const { vacanciesList } = useStoreVacanciesStack();
   const router = useRouter();
   const data = vacanciesList.filter((el) => el.Id === params.response);
-  
+
   if (data.length === 0) {
     redirect("/");
   }
-  
+
   const {
     Title,
     Department,
@@ -31,8 +31,6 @@ export default function Page({ params }: { params: { response: string } }) {
     Comment,
   } = data[0];
 
-
-  
   return (
     <div className="w-full min-h-screen flex items-center justify-center bg-prime-bg">
       <div className="p-20 max-w-[900px] space-y-4 flex flex-col min-w-[800px] min-h-[650px] items-center rounded-2xl border bg-white hronit-shadow">
@@ -89,7 +87,7 @@ export default function Page({ params }: { params: { response: string } }) {
           type="button"
           className="w-full hronit-shadow  disabled:bg-gray-300 bg-[#CEFF1A] text-black px-8 py-3"
         >
-          Respond
+          Response
         </button>
       </div>
     </div>

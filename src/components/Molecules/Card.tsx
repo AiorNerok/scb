@@ -45,11 +45,11 @@ export default function Card({
       <div className="flex justify-between mb-5">
         {LinkFsociety ? (
           <Link href={`/lk/voronka/${Id_v}`}>
-            <h3 className="text-2xl font-bold">{title}</h3>
+            <h3 className="text-2xl font-bold break-words">{title}</h3>
           </Link>
         ) : (
           <Link href={`/lk/${Id_v}`}>
-            <h3 className="text-2xl font-bold">{title}</h3>
+            <h3 className="text-2xl font-bold break-words">{title}</h3>
           </Link>
         )}
         <Dropdown
