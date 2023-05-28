@@ -6,15 +6,10 @@ import { useRecordStack, RecordProp } from "@/store/RecordStack";
 import { Dropdown, Badge, ItemCandidate } from "@/components";
 import { IconAdjustmentsCog, IconWand } from "@tabler/icons-react";
 
-function choose(choices: any[]) {
-  var index = Math.floor(Math.random() * choices.length);
-  return choices[index];
-}
-
 export default function Page({ params }: { params: { v: string } }) {
   const { vacanciesList } = useStoreVacanciesStack();
 
-  const { Record, toggleBest } = useRecordStack();
+  const { Record, DelReacord } = useRecordStack();
 
   const res = vacanciesList.filter((el) => el.Id === params.v);
 
@@ -28,10 +23,15 @@ export default function Page({ params }: { params: { v: string } }) {
 
   Record.forEach((el) => {
     if (el.isBest) return;
-    if (el.id_vacancies === Id){
-      candidate.push(el)
+    if (el.id_vacancies === Id) {
+      candidate.push(el);
     }
   });
+
+  function choose() {
+    DelReacord("08ad28f16-ecfb-4aef-a1df-8ba2b2c8f3dcd");
+    DelReacord("08ad8fe16-ecfb-4aef-a1df-8ba2b2c8f3cd");
+  }
 
   return (
     <div className="mx-5 space-y-4">
@@ -53,7 +53,7 @@ export default function Page({ params }: { params: { v: string } }) {
         <button
           onClick={() => {
             if (!!candidate.length) {
-              toggleBest(choose(candidate)["ID"]);
+              choose();
             }
           }}
           className="w-[213px] h-[52px] flex items-center justify-center hronit-shadow bg-[#CEFF1A]"

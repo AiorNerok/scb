@@ -10,6 +10,12 @@ const nextConfig = {
             },
             {
                 hostname: "upload.wikimedia.org"
+            },
+            {
+                hostname: "media.istockphoto.com "
+            },
+            {
+                hostname: "media.istockphoto.com"
             }
         ]
     }
