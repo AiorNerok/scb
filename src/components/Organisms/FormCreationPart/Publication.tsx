@@ -70,11 +70,19 @@ export default function Publication({ BeforeBegin, AfterEnd }: Props) {
             {Contacts.tel && <Badge text={Contacts.tel} />}
             {Contacts.email && <Badge text={Contacts.email} />}
           </div>
-          <div>
+          <div className="flex gap-3">
             {soc && (
               <>
-                {soc.telegram && <IconBrandTelegram size={15} />}
-                {soc.whatsapp && <IconBrandWhatsapp size={15} />}
+                {soc.telegram && (
+                  <span>
+                    <IconBrandTelegram size={30} />
+                  </span>
+                )}
+                {soc.whatsapp && (
+                  <span>
+                    <IconBrandWhatsapp size={30} />
+                  </span>
+                )}
               </>
             )}
           </div>

@@ -4,15 +4,12 @@ import Link from "next/link";
 
 import { useStoreVacanciesStack } from "@/store/VacanciesStack";
 import { useStoreJobStatus } from "@/store/JobStatus";
-import { Suspense } from "react";
-import Loading from "./loading";
 export default function PageLk() {
   const { vacanciesList, toggleStatusID } = useStoreVacanciesStack();
   const { status } = useStoreJobStatus();
 
   return (
     <main className="flex-1 pl-5 w-full inline-flex flex-wrap flex-row gap-3 ">
-      <Suspense fallback={<Loading />}>
         {status === "Active" && (
           <div className="flex-1 flex flex-row gap-4 flex-wrap">
             {vacanciesList &&
@@ -71,7 +68,6 @@ export default function PageLk() {
                 })}
           </div>
         )}
-      </Suspense>
 
       <JobFilter />
     </main>

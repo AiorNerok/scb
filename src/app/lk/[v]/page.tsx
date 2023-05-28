@@ -55,7 +55,9 @@ export default function Page({ params }: { params: { v: string } }) {
 
         <button
           onClick={() => {
-            toggleBest(choose(candidate)["ID"]);
+            if (!!candidate.length) {
+              toggleBest(choose(candidate)["ID"]);
+            }
           }}
           className="w-[213px] h-[52px] flex items-center justify-center hronit-shadow bg-[#CEFF1A]"
         >

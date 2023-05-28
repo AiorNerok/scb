@@ -57,6 +57,8 @@ export const FormCreation = ({}: Props) => {
     ExpectationsMutation
   } = useRecordCreation();
 
+  
+
   return (
     <>
       <form className="flex flex-col gap-3 w-[586px]" onSubmit={() => ({})}>
@@ -129,7 +131,7 @@ export const FormCreation = ({}: Props) => {
                           checked={Expectations.soc.telegram}
                           onChange={() =>
                             ExpectationsMutation({
-                              soc: { telegram: !Expectations.soc.telegram },
+                              soc: { telegram: !Expectations.soc.telegram, whatsapp: Expectations.soc.whatsapp },
                             })
                           }
                           className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
@@ -153,7 +155,7 @@ export const FormCreation = ({}: Props) => {
                           checked={Expectations.soc.whatsapp}
                           onChange={() =>
                             ExpectationsMutation({
-                              soc: { whatsapp: !Expectations.soc.whatsapp },
+                              soc: { whatsapp: !Expectations.soc.whatsapp, telegram: Expectations.soc.telegram },
                             })
                           }
                           className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
@@ -176,7 +178,7 @@ export const FormCreation = ({}: Props) => {
                     className="flex flex-row gap-1 items-center"
                   >
                     <IconPaperclip size={30} /> <span>Upload a photo</span>
-                    <input id="upload" type="file" className="hidden" />
+                    <input id="upload" type="file" className="hidden" accept="image/*"/>
                   </label>
                 </div>
                 <button
@@ -200,7 +202,7 @@ export const FormCreation = ({}: Props) => {
                     Confirm your consent to the processing of personal data
                   </h3>
                   <div className="flex gap-5">
-                    <label htmlFor="agree" className="flex gap-2">
+                    <label htmlFor="agree" className="flex gap-2 form-control">
                       <input
                         onChange={() => IsAgreeMutation(true)}
                         id="agree"
@@ -210,7 +212,7 @@ export const FormCreation = ({}: Props) => {
                       />
                       Agree
                     </label>
-                    <label htmlFor="disagree" className="flex gap-2">
+                    <label htmlFor="disagree" className="flex gap-2 form-control">
                       <input
                         onChange={() => IsAgreeMutation(false)}
                         id="disagree"
