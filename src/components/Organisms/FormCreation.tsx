@@ -61,7 +61,7 @@ export const FormCreation = ({}: Props) => {
   return (
     <>
       <form className="flex flex-col gap-3 w-[586px]" onSubmit={() => ({})}>
-        {Position === StatusPositionFilter[0] && (
+        {/* {Position === StatusPositionFilter[0] && (
           <DynamicExperience
             BeforeBegin={
               <label>
@@ -81,134 +81,133 @@ export const FormCreation = ({}: Props) => {
               </label>
             }
           />
-        )}
+        )} */}
 
         {Position === StatusPositionFilter[1] && (
-        <DynamicExpectations
-          AfterEnd={
-            <>
-              <label>
-                Contacts
-                <div className="flex flex-row gap-2">
-                  <input
-                    type="tel"
-                    className="border focus:outline-none px-4 py-2 w-full border-black"
-                    placeholder="Phone"
-                    value={Expectations.Contacts.tel}
-                    onChange={(e) => {
-                      let val = e.target.value;
-                      // `+7(${n1}${n2}${n3})${n4}${n5}${n6}-${n7}${n8}-${n9}${n10}`
-                      if (isNumber(val) || val === "") {
+          <DynamicExpectations
+            AfterEnd={
+              <>
+                <label>
+                  Contacts
+                  <div className="flex flex-row gap-2">
+                    <input
+                      type="tel"
+                      className="border focus:outline-none px-4 py-2 w-full border-black"
+                      placeholder="Phone"
+                      value={Expectations.Contacts.tel}
+                      onChange={(e) => {
+                        let val = e.target.value;
+                        // `+7(${n1}${n2}${n3})${n4}${n5}${n6}-${n7}${n8}-${n9}${n10}`
+                        if (isNumber(val) || val === "") {
+                          ExpectationsMutation({
+                            Contacts: {
+                              tel: val,
+                              email: Expectations.Contacts.email,
+                            },
+                          });
+                        }
+                      }}
+                    />
+                    <input
+                      type="email"
+                      className="border focus:outline-none px-4 py-2 w-full border-black"
+                      placeholder="Email"
+                      value={Expectations.Contacts.email}
+                      onChange={(e) => {
+                        let val = e.target.value;
                         ExpectationsMutation({
                           Contacts: {
-                            tel: val,
-                            email: Expectations.Contacts.email,
+                            email: val,
+                            tel: Expectations.Contacts.tel,
                           },
                         });
-                      }
-                    }}
-                  />
-                  <input
-                    type="email"
-                    className="border focus:outline-none px-4 py-2 w-full border-black"
-                    placeholder="Email"
-                    value={Expectations.Contacts.email}
-                    onChange={(e) => {
-                      let val = e.target.value;
-                      ExpectationsMutation({
-                        Contacts: {
-                          email: val,
-                          tel: Expectations.Contacts.tel,
-                        },
-                      });
-                    }}
-                  />
-                </div>
-              </label>
-              <div>
-                <div className="flex items-center mb-7 gap-4">
-                  <div className="relative flex gap-x-3">
-                    <div className="flex h-6 items-center">
-                      <input
-                        id="telegram"
-                        type="checkbox"
-                        value={""}
-                        checked={Expectations.soc.telegram}
-                        onChange={() =>
-                          ExpectationsMutation({
-                            soc: {
-                              telegram: !Expectations.soc.telegram,
-                              whatsapp: Expectations.soc.whatsapp,
-                            },
-                          })
-                        }
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                      />
-                    </div>
-                    <div className="text-sm leading-6">
-                      <label
-                        htmlFor="telegram"
-                        className="font-medium text-gray-900"
-                      >
-                        Telegram
-                      </label>
-                    </div>
+                      }}
+                    />
                   </div>
-                  <div className="relative flex gap-x-3">
-                    <div className="flex h-6 items-center">
-                      <input
-                        id="whatsapp"
-                        type="checkbox"
-                        value={""}
-                        checked={Expectations.soc.whatsapp}
-                        onChange={() =>
-                          ExpectationsMutation({
-                            soc: {
-                              whatsapp: !Expectations.soc.whatsapp,
-                              telegram: Expectations.soc.telegram,
-                            },
-                          })
-                        }
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                      />
-                    </div>
-                    <div className="text-sm leading-6">
-                      <label
-                        htmlFor="whatsapp"
-                        className="font-medium text-gray-900"
-                      >
-                        WhatsApp Men
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="mb-14">
-                <label
-                  htmlFor="upload"
-                  className="inline-flex flex-row gap-1 items-center"
-                >
-                  <IconPaperclip size={30} /> <span>Upload a photo</span>
-                  <input
-                    id="upload"
-                    type="file"
-                    className="hidden"
-                    accept="image/*"
-                  />
                 </label>
-              </div>
-              <button
-                onClick={() => PositionUpdate("Publication")}
-                type="button"
-                className="hronit-shadow bg-[#CEFF1A] text-black w-[135px] px-8 py-3"
-              >
-                Continue
-              </button>
-            </>
-          }
-        />
-        {/* )} */}
-        {/* 
+                <div>
+                  <div className="flex items-center mb-7 gap-4">
+                    <div className="relative flex gap-x-3">
+                      <div className="flex h-6 items-center">
+                        <input
+                          id="telegram"
+                          type="checkbox"
+                          value={""}
+                          checked={Expectations.soc.telegram}
+                          onChange={() =>
+                            ExpectationsMutation({
+                              soc: {
+                                telegram: !Expectations.soc.telegram,
+                                whatsapp: Expectations.soc.whatsapp,
+                              },
+                            })
+                          }
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                      </div>
+                      <div className="text-sm leading-6">
+                        <label
+                          htmlFor="telegram"
+                          className="font-medium text-gray-900"
+                        >
+                          Telegram
+                        </label>
+                      </div>
+                    </div>
+                    <div className="relative flex gap-x-3">
+                      <div className="flex h-6 items-center">
+                        <input
+                          id="whatsapp"
+                          type="checkbox"
+                          value={""}
+                          checked={Expectations.soc.whatsapp}
+                          onChange={() =>
+                            ExpectationsMutation({
+                              soc: {
+                                whatsapp: !Expectations.soc.whatsapp,
+                                telegram: Expectations.soc.telegram,
+                              },
+                            })
+                          }
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                      </div>
+                      <div className="text-sm leading-6">
+                        <label
+                          htmlFor="whatsapp"
+                          className="font-medium text-gray-900"
+                        >
+                          WhatsApp Men
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mb-14">
+                  <label
+                    htmlFor="upload"
+                    className="inline-flex flex-row gap-1 items-center"
+                  >
+                    <IconPaperclip size={30} /> <span>Upload a photo</span>
+                    <input
+                      id="upload"
+                      type="file"
+                      className="hidden"
+                      accept="image/*"
+                    />
+                  </label>
+                </div>
+                <button
+                  onClick={() => PositionUpdate("Publication")}
+                  type="button"
+                  className="hronit-shadow bg-[#CEFF1A] text-black w-[135px] px-8 py-3"
+                >
+                  Continue
+                </button>
+              </>
+            }
+          />
+        )}
         {Position === StatusPositionFilter[2] && (
           <DynamicPublication
             AfterEnd={
@@ -272,7 +271,7 @@ export const FormCreation = ({}: Props) => {
               </>
             }
           />
-        )} */}
+        )}
       </form>
       <aside className="min-w-[233px] flex flex-col gap-3 items-baseline w-[200px]">
         {StatusPositionFilter.map((el) => (
