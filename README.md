@@ -1,8 +1,21 @@
 # SCB HACKATHON
 
+
+
 ## Hi, friend. Today I will tell you how to start this "project".
 Follow all the commands in order. kk? =)
 
+ps. technologies used:
+- Next13 appdir
+- Tailwind
+- Headlessui
+- Tabler
+- Eslint
+- Framer-motion
+- Tailwindcss
+- Typescript
+- Zustand
+- ...
 
 ## Option #1
 
