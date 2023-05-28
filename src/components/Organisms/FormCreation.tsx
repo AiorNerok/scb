@@ -179,7 +179,7 @@ export const FormCreation = ({}: Props) => {
                 <div className="mb-14">
                   <label
                     htmlFor="upload"
-                    className="flex flex-row gap-1 items-center"
+                    className="inline-flex flex-row gap-1 items-center"
                   >
                     <IconPaperclip size={30} /> <span>Upload a photo</span>
                     <input
