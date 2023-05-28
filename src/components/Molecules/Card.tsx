@@ -2,6 +2,7 @@
 import { IconMenu2, IconPlus } from "@tabler/icons-react";
 import { Dropdown } from "./Dropdown";
 import { Badge } from "../Atoms";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 type Props = {
@@ -25,6 +26,8 @@ export default function Card({
   isActive,
   LinkFsociety = false,
 }: Props) {
+  const router = useRouter();
+
   if (emptyCard) {
     return (
       <div className="hronit-shadow w-[286px] h-[246px] flex items-center justify-center border">
@@ -58,7 +61,7 @@ export default function Card({
         >
           <span>Edit</span>
           <span>Fill a vacancy</span>
-          <span>Send job link</span>
+          <span onClick={() => router.push(`/${id}`)}>Send job link</span>
           <span>Download pdf</span>
           <span
             className="block w-full h-full text-left"

@@ -22,18 +22,15 @@ export default function Page({ params }: { params: { v: string } }) {
     redirect("/lk");
   }
 
-  const { Title, Stack, Language, Developers } = res[0];
+  const { Title, Stack, Language, Developers, Id } = res[0];
 
   let candidate: RecordProp[] = [];
 
   Record.forEach((el) => {
     if (el.isBest) return;
-
-    return Developers.map((v) => {
-      if (el.Developers.includes(v)) {
-        candidate.push(el);
-      }
-    });
+    if (el.id_vacancies === Id){
+      candidate.push(el)
+    }
   });
 
   return (
@@ -62,9 +59,9 @@ export default function Page({ params }: { params: { v: string } }) {
           className="w-[213px] h-[52px] flex items-center justify-center hronit-shadow bg-[#CEFF1A]"
         >
           <span>
-            <IconWand className="pr-4" />
+            <IconWand />
           </span>
-          <span>Magic search</span>
+          <span className="translate-x-3">Magic search</span>
         </button>
       </div>
       <div className="space-y-4">

@@ -41,6 +41,7 @@ export default function Page() {
     NameMutation,
     Clean,
     RecordMutation,
+    Expectations,
   } = useRecordCreation();
 
   const { vacanciesListUpdate } = useStoreVacanciesStack();
@@ -122,6 +123,10 @@ export default function Page() {
                           Description: Record.Description,
                           isActive: true,
                           Comment: Record.Comment,
+                          Salary: Expectations.Salary,
+                          Engagement: Expectations.Engagement,
+                          ProvidingRelocation: Expectations.ProvidingRelocation,
+                          WorkType: Expectations.WorkType,
                         });
                         router.push("/lk");
                         Clean();

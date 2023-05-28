@@ -47,7 +47,18 @@ export default function Page({ params }: { params: { v: string } }) {
           ))}
         </Dropdown>
       </div>
-
+      <div className="flex justify-between gap-2">
+        {["Contacting", "Тesting", "Interview", "Offer"].map((el, index) => (
+          <span
+            className={`${
+              index === 0 ? "text-white bg-black" : "bg-white text-black"
+            } border rounded-md flex-1 border-black text-center cursor-pointer`}
+            key={el}
+          >
+            {el}
+          </span>
+        ))}
+      </div>
       <div className="space-y-4">
         {candidate.map((el) => {
           return (
