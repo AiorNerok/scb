@@ -61,7 +61,7 @@ export const FormCreation = ({}: Props) => {
   return (
     <>
       <form className="flex flex-col gap-3 w-[586px]" onSubmit={() => ({})}>
-        {/* {Position === StatusPositionFilter[0] && (
+        {Position === StatusPositionFilter[0] && (
           <DynamicExperience
             BeforeBegin={
               <label>
@@ -81,9 +81,9 @@ export const FormCreation = ({}: Props) => {
               </label>
             }
           />
-        )} */}
+        )}
 
-        {/* {Position === StatusPositionFilter[1] && ( */}
+        {Position === StatusPositionFilter[1] && (
         <DynamicExpectations
           AfterEnd={
             <>
