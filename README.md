@@ -53,8 +53,9 @@ If everything is alright. follow the link [localhost:3000](http://localhost:3000
 ## Further a little about what is implemented, and where you can poke
 
 ### What is implemented && Clickable links
-- Adding a Resume
-- Adding Jobs
+- [Accaunt HR](http://localhost:3000/lk)
+- [Adding a Resume](http://localhost:3000/create)
+- [Adding Jobs](http://localhost:3000/lk/create/job)
 - You can share a link so that the applicant fills out the profile
 - Transferring a vacancy to the archive and back (adventure for 20 minutes, entered and exited)
 - Share a link to the vacancy constructor
