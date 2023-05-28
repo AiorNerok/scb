@@ -3,10 +3,8 @@
 import { redirect } from "next/navigation";
 import { useStoreVacanciesStack } from "@/store/VacanciesStack";
 import { useRecordStack, RecordProp } from "@/store/RecordStack";
-import { Badge } from "@/components/Atoms";
-import { Dropdown } from "@/components";
+import { Dropdown, Badge, ItemCandidate } from "@/components";
 import { IconAdjustmentsCog, IconWand } from "@tabler/icons-react";
-import { ItemCandidat } from "@/components/Molecules/ItemCandidat";
 
 function choose(choices: any[]) {
   var index = Math.floor(Math.random() * choices.length);
@@ -70,7 +68,7 @@ export default function Page({ params }: { params: { v: string } }) {
       <div className="space-y-4">
         {candidate.map((el) => {
           return (
-            <ItemCandidat
+            <ItemCandidate
               isBest={el.isBest}
               ID={el.ID}
               desc={el.Description}

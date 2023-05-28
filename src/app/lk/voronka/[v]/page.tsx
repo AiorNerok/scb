@@ -3,10 +3,8 @@
 import { redirect } from "next/navigation";
 import { useStoreVacanciesStack } from "@/store/VacanciesStack";
 import { RecordProp, useRecordStack } from "@/store/RecordStack";
-import { Badge } from "@/components/Atoms";
-import { Dropdown } from "@/components";
-import { IconAdjustmentsCog, IconWand } from "@tabler/icons-react";
-import { ItemCandidat } from "@/components/Molecules/ItemCandidat";
+import { Dropdown, Badge, ItemCandidate } from "@/components";
+import { IconAdjustmentsCog } from "@tabler/icons-react";
 
 export default function Page({ params }: { params: { v: string } }) {
   const { vacanciesList } = useStoreVacanciesStack();
@@ -53,9 +51,9 @@ export default function Page({ params }: { params: { v: string } }) {
       <div className="space-y-4">
         {candidate.map((el) => {
           return (
-            <ItemCandidat
-            isBest={el.isBest}
-            ID={el.ID}
+            <ItemCandidate
+              isBest={el.isBest}
+              ID={el.ID}
               desc={el.Description}
               img={el.img!}
               name={el.Name}

@@ -10,7 +10,7 @@ type Props = {
   isBest?: boolean;
 };
 
-export const ItemCandidat = ({
+export const ItemCandidate = ({
   img,
   name,
   desc,
@@ -47,7 +47,9 @@ export const ItemCandidat = ({
             <IconPlus size={40} />
           </button>
         ) : (
-          <IconMinus size={40} />
+          <button onClick={() => toggleBest(ID)}>
+            <IconMinus size={40} />
+          </button>
         )}
       </div>
     </div>
