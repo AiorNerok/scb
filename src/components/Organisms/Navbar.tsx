@@ -4,32 +4,26 @@ const mockNavigationLinks = [
   {
     href: "/lk",
     label: "Jobs",
-    listChildLink: ["/lk", "/lk/create","/lk/create/job"],
   },
   {
     href: "/lk/voronka",
     label: "Voronka",
-    listChildLink: ["/lk/voronka"],
   },
   {
     href: "/lk/favorites",
     label: "Favorites",
-    listChildLink: ["/lk/favorites"],
   },
   {
     href: "/lk/notifications",
     label: "Notifications",
-    listChildLink: ["/lk/notifications"],
   },
   {
     href: "/lk/calendar",
     label: "Calendar",
-    listChildLink: ["/lk/calendar"],
   },
   {
     href: "/lk/settings",
     label: "Settings",
-    listChildLink: ["/lk/settings"],
   },
 ];
 

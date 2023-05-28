@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ActiveLink } from "@/store/activeLink";
 
 type LinkProps = {
   href: string;
   label: string;
-  listChildLink: string[];
 };
 
 type Props = {
@@ -15,11 +15,12 @@ type Props = {
 
 export const Navigation = ({ ListLinks }: Props) => {
   const pathname = usePathname();
-
+  const { hrefLink } = ActiveLink();
   return (
     <>
-      {ListLinks.map(({ href, label, listChildLink }) => {
-        const isActive = listChildLink.includes(pathname);
+      {ListLinks.map(({ href, label }) => {
+        const isActive = href === hrefLink;
+        // const isActive = false;
         return (
           <Link
             key={label}

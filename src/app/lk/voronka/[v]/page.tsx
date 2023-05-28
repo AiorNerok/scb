@@ -5,16 +5,20 @@ import { useStoreVacanciesStack } from "@/store/VacanciesStack";
 import { RecordProp, useRecordStack } from "@/store/RecordStack";
 import { Dropdown, Badge, ItemCandidate } from "@/components";
 import { IconAdjustmentsCog } from "@tabler/icons-react";
+import { ActiveLink } from "@/store/activeLink";
 
 export default function Page({ params }: { params: { v: string } }) {
   const { vacanciesList } = useStoreVacanciesStack();
   const { Record } = useRecordStack();
+  const { upd } = ActiveLink();
 
   const res = vacanciesList.filter((el) => el.Id === params.v);
 
   if (res.length === 0) {
-    redirect("/voronka");
+    redirect("/lk");
   }
+
+  // upd("/lk/voronka");
 
   const { Title, Stack, Language, Developers, Id } = res[0];
 

@@ -2,8 +2,18 @@
 
 import { Card } from "@/components";
 import { useStoreVacanciesStack } from "@/store/VacanciesStack";
+import { ActiveLink } from "@/store/activeLink";
+import { useLayoutEffect } from "react";
 
 export default function Page() {
+  
+
+  const { upd } = ActiveLink();
+  useLayoutEffect(() => {
+    upd("/lk/voronka");
+  }, []);
+
+
   const { vacanciesList } = useStoreVacanciesStack();
   return (
     <div className="flex-1 flex flex-row gap-4 flex-wrap pl-5">

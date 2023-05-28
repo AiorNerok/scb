@@ -4,9 +4,18 @@ import Link from "next/link";
 
 import { useStoreVacanciesStack } from "@/store/VacanciesStack";
 import { useStoreJobStatus } from "@/store/JobStatus";
+import { ActiveLink } from "@/store/activeLink";
+import { useLayoutEffect } from "react";
+
 export default function PageLk() {
   const { vacanciesList, toggleStatusID } = useStoreVacanciesStack();
   const { status } = useStoreJobStatus();
+  const {upd} = ActiveLink()
+
+
+  useLayoutEffect(()=>{
+    upd('/lk')
+  },[])
 
   return (
     <main className="flex-1 pl-5 w-full inline-flex flex-wrap flex-row gap-3 ">
