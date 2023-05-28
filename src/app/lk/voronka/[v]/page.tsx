@@ -6,6 +6,7 @@ import { RecordProp, useRecordStack } from "@/store/RecordStack";
 import { Dropdown, Badge, ItemCandidate } from "@/components";
 import { IconAdjustmentsCog } from "@tabler/icons-react";
 import { ActiveLink } from "@/store/activeLink";
+import { useLayoutEffect } from "react";
 
 export default function Page({ params }: { params: { v: string } }) {
   const { vacanciesList } = useStoreVacanciesStack();
@@ -18,7 +19,9 @@ export default function Page({ params }: { params: { v: string } }) {
     redirect("/lk");
   }
 
-  // upd("/lk/voronka");
+  useLayoutEffect(() => {
+    upd("/lk/voronka");
+  }, []);
 
   const { Title, Stack, Language, Developers, Id } = res[0];
 
