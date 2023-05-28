@@ -1,34 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SCB HACKATHON
 
-## Getting Started
+## Hi, friend. Today I will tell you how to start this "project".
+Follow all the commands in order. kk? =)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+## Option #1
+
 ```
+➜ git clone https://github.com/AiorNerok/scb.git
+```
+you should see it
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![image](./.readme/code.png)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+then run these commands
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![image](./.readme/code2.png)
 
-## Learn More
+and you should see it
 
-To learn more about Next.js, take a look at the following resources:
+![image](./.readme/code3.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If everything is alright. follow the link [localhost:3000](http://localhost:3000)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Option #2 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+➜ git clone https://github.com/AiorNerok/scb.git
+➜ cd scb
+➜ docker build -t nextjs-docker .
+➜ docker build -t nextjs-docker .
+➜ docker run -p 3000:3000 nextjs-docker
+```
+If everything is alright. follow the link [localhost:3000](http://localhost:3000)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Now you can poke wherever you want
+
+## Further a little about what is implemented, and where you can poke
+
+### What is implemented && Clickable links
+- Adding a Resume
+- Adding Jobs
+- You can share a link so that the applicant fills out the profile
+- Transferring a vacancy to the archive and back (adventure for 20 minutes, entered and exited)
+- Share a link to the vacancy constructor
